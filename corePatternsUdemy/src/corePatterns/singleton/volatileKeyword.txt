@@ -1,0 +1,38 @@
+ Read more: https://javarevisited.blogspot.com/2011/06/volatile-keyword-java-example-tutorial.html#ixzz8ZcXUg51K
+
+
+Write to a volatile field will happen before any read operation. - best bet for multithreaded environments
+
+with volatile variable, it's guaranteed that all reader threads will see the updated value of the volatile variable once the write operation is completed, without volatile keyword different reader thread may see different values.
+
+volatile keyword in Java is used as an indicator to Java compiler and Thread that do not cache the value of this variable and always read it from the main memory.
+The Java volatile keyword cannot be used with method or class and it can only be used with a variable
+
+
+If we do not make the _instance variable volatile then the Thread which is creating an instance of Singleton is not able to communicate other thread,
+that instance has been created until it comes out of the Singleton block,
+so if Thread A is creating Singleton instance and just after creation lost the CPU,
+all other thread will not be able to see the value of _instance as not null and they will believe it's still null.
+because reader threads are not doing any locking and until the writer thread comes out of the synchronized block, the memory will not be synchronized and the value of _instance will not be updated in the main memory.
+
+So in Summary apart from synchronized keywords in Java, a volatile keyword is also used to communicate the content of memory between threads.
+
+
+The volatile keyword in java guarantees that the value of the volatile variable will always be read from the main memory
+and the "happens-before" relationship in the Java Memory model (JMM) will ensure that the content of memory will be communicated to different threads.
+
+
+Without a volatile variable, the compiler can re-order the code, free to cache value of volatile variable instead of always reading from main memory. like the following example without volatile variable may result in an infinite loop
+
+private boolean isActive = thread;
+public void printMessage(){
+  while(isActive){
+     System.out.println("Thread is Active");
+  }
+}
+
+
+without the volatile modifier, it's not guaranteed that one Thread sees the updated value of isActive from other threads. The compiler is also free to cache the value of isActive instead of reading it from the main memory in every iteration. By making isActive a volatile variable you avoid these issues.
+
+Read more: https://javarevisited.blogspot.com/2011/06/volatile-keyword-java-example-tutorial.html#ixzz8ZcZiPKrT
+
