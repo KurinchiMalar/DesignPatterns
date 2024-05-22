@@ -1,0 +1,19 @@
+Template Method Pattern --> Behavioral Pattern
+
+                Parent
+
+        Child1          Child2
+
+Parent to provide a template (base implementation) for the child to follow.
+This method will not be overridden by child classes.
+
+
+            DataRenderer (Parent)
+                render()
+                readData()
+                processData()
+// render() --> base template method
+          XMLDataRenderer       CSVDataRenderer
+           readData()               readData()
+           processData()            processData()
+
