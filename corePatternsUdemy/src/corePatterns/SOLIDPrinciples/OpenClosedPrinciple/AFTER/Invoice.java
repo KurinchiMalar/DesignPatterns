@@ -1,9 +1,9 @@
-package corePatterns.SOLIDPrinciples.SingleResponsibilityPrinciple.AFTER;
+package corePatterns.SOLIDPrinciples.OpenClosedPrinciple.AFTER;
 
 import corePatterns.SOLIDPrinciples.SingleResponsibilityPrinciple.a_BEFORE.Marker;
 
 public class Invoice {
-    private corePatterns.SOLIDPrinciples.SingleResponsibilityPrinciple.a_BEFORE.Marker marker;
+    private Marker marker;
     private int quantity;
 
     public Invoice(Marker marker, int quantity){

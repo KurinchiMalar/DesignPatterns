@@ -1,4 +1,4 @@
-package corePatterns.SOLIDPrinciples.SingleResponsibilityPrinciple.BEFORE;
+package corePatterns.SOLIDPrinciples.SingleResponsibilityPrinciple.a_BEFORE;
 
 public class Marker {
     String name;
