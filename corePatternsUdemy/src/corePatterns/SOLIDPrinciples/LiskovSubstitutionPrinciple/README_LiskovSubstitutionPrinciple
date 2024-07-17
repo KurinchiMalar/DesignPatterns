@@ -1,0 +1,2 @@
+If classB is  subtype of class A, then we should be able to replace object of A with B without
+breaking the behavior of the program.
